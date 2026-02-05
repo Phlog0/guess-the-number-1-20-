@@ -1,30 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="descr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.scss" />
+    <title>❓❓❓</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="256x256"
+      href="/Rubik_cube_256x256.png"
+    />
+    <script src="/src/main.ts" type="module" defer></script>
+  </head>
+  <body>
+    <div id="toast" class="toast toast-success">Скопировано!</div>
+    <nav class="options">
+      <button class="changeTheme">
+        <svg
+          class="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12.3,22h-.1a10.31,10.31,0,0,1-7.34-3.15,10.46,10.46,0,0,1-.26-14,10.13,10.13,0,0,1,4-2.74,1,1,0,0,1,1.06.22,1,1,0,0,1,.24,1,8.4,8.4,0,0,0,1.94,8.81,8.47,8.47,0,0,0,8.83,1.94,1,1,0,0,1,1.27,1.29A10.16,10.16,0,0,1,19.6,19,10.28,10.28,0,0,1,12.3,22Z"
+          />
+        </svg>
+        <svg
+          class="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 3a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0V3zm0 16a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm1-2a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-9-2a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2H3zm16 0a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2h-2zm-.707-8.707a1 1 0 0 1 1.414 1.414l-1.581 1.581a1 1 0 0 1-1.414-1.414l1.58-1.581zM5.707 19.707a1 1 0 1 1-1.414-1.414l1.581-1.581a1 1 0 1 1 1.414 1.414l-1.58 1.581zm-1.414-14a1 1 0 0 1 1.414-1.414l1.581 1.581a1 1 0 0 1-1.414 1.414l-1.581-1.58zm15.414 12.586a1 1 0 0 1-1.414 1.414l-1.581-1.581a1 1 0 0 1 1.414-1.414l1.581 1.58z"
+          />
+        </svg>
+      </button>
+      <!-- -------------------------- AUDIO PLAYER -------------------------- -->
+      <div class="player">
+        <audio id="audioPlayer" loop>
+          Your browser does not support the audio element.
+        </audio>
+        <div class="controls">
+          <button id="playlistMenuBtn">🔽</button>
+
+          <button id="prevBtn">⏮</button>
+          <button id="playBtn">▶️</button>
+
+          <button id="nextBtn">⏭</button>
+          <button id="loopBtn">🔁</button>
+          <button id="muteBtn">🔊</button>
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.1" />
+        </div>
+        <div class="playlist-overlay">
+          <div class="playlist hidden"></div>
+          <div class="track-info">
+            <div id="currentTrack">------------- ---------</div>
+            <div id="progress">00:00 / 00:00</div>
+          </div>
+          <input type="range" id="progressBar" min="0" max="100" value="0" />
+        </div>
+      </div>
+
+      <!-- -------------------------- AUDIO PLAYER -------------------------- -->
+      <div class="links">
+        <a href="https://github.com/Phlog0" target="_blank" class="github-link"
+          >My Github</a
+        >
+        <a
+          href="https://t.me/sergey_zadorkin"
+          target="_blank"
+          class="telegram-link"
+          >My Telegram</a
+        >
+        <button id="copyMailBtn" target="_blank" class="telegram-link">
+          sergeyzadorkin.w@gmail.com
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-copy-icon lucide-copy"
+          >
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <main>
+      <div class="descr">
         <button class="restart">Again!</button>
         <span class="descr-title">(Between 1 and 20)</span>
-    </div>
-    <h1 class="game-title">Guess my number!</h1>
-    <div class="secret">?</div>
-    <div class="game-container">
+      </div>
+      <h1 class="game-title">Guess my number!</h1>
+      <div class="secret">?</div>
+      <div class="game-container">
         <div class="game-input">
-            <input type="text" class="user-input">
-            <button class="check">Check!</button>
+          <input type="number" class="user-input" />
+          <button class="check">Check!</button>
         </div>
         <div class="game-results">
-            <span class="prompt">Start guessing...</span>
-            <span class="score">Score: <output class="score-output">0</output></span>
-            <span class="highScore">highscore: <output class="highScore-output">0</output></span>
+          <span class="prompt">Start guessing...</span>
+          <div class="score">
+            <span class="score-title">Score:</span>
+            <output class="score-output">0</output>
+          </div>
+          <div class="highScore">
+            <span class="score-title">Highscore:</span>
+            <output class="highScore-output">0</output>
+          </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+      </div>
+    </main>
+  </body>
 </html>
