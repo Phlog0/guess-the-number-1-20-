@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     initElements();
   let answer = Math.floor(Math.random() * (20 - 1) + 1);
   console.log({ answer });
-  // let theme: ProjectTheme = "dark";
-
   let score = 20;
   let highScore = 0;
 
@@ -36,15 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         displayMessage(".prompt", "More!");
       }
-      // guess > answer
-      //   ?
-      //   :
+
       if (score < 1) {
         displayMessage(".score-output", `You lose! It was ${answer}`);
         document.body.style.backgroundColor = "red";
       }
-
-      // score < 1 ? displayMessage(".score-output", "You lose!") : false;
     } else {
       displayMessage(".prompt", "🎇Congratulations! You guessed!");
       displayMessage(".secret", answer);
