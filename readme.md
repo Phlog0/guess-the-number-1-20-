@@ -10,8 +10,8 @@
 
 Используемые инструменты \ технологии:
 
-1. [Bun](<[text](https://bun.com/)>)
-2. [Vite](<[text](https://vite.dev/)>)
+1. [Bun](https://bun.com/)
+2. [Vite](https://vite.dev/)
 3. [TypeScript](https://www.typescriptlang.org/)
 4. [SCSS](https://sass-lang.com/)
 
