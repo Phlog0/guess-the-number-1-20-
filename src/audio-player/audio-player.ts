@@ -12,7 +12,6 @@ export function audioPlayer() {
   const {
     audioPlayer,
     volumeSlider,
-    currentTrackEl,
     loopBtn,
     muteBtn,
     nextBtn,
@@ -29,7 +28,6 @@ export function audioPlayer() {
   let isMuted = false;
   let isLooped = true;
   let audioVolume = 0.9;
-  let isLoading = false;
   let isPlaylistMenuClosed = true;
 
   const playlist: Playlist = [
@@ -130,7 +128,7 @@ export function audioPlayer() {
     }
   });
 
-  volumeSlider.addEventListener("input", (e) => {
+  volumeSlider.addEventListener("input", () => {
     audioVolume = volumeSlider.valueAsNumber;
     if (audioVolume === 1) {
       muteBtn.textContent = "🔊";

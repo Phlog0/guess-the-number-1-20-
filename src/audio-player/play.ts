@@ -4,7 +4,7 @@ import { initElements } from "./init-elements";
 export async function play(index: number, playlist: Playlist) {
   const { progressEl, progressBar, audioPlayer, tracks, currentTrackEl } =
     initElements();
-  index;
+
   progressEl.textContent = "00:00 / --:--";
   progressBar.value = "0";
   audioPlayer.pause();

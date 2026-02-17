@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     throw new Error("ошибка");
   }
   checkButton.addEventListener("click", () => {
-    let guess = userInput.valueAsNumber;
+    const guess = userInput.valueAsNumber;
 
     if (!guess || isNaN(guess)) {
       displayMessage(".prompt", "🔴 not a number!");
