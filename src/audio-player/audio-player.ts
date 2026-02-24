@@ -8,7 +8,7 @@ export type Playlist = {
   src: string;
 }[];
 export function audioPlayer() {
-  const musicFolder = "/audio";
+  const musicFolder = import.meta.env.VITE_AUDIO_PATH || "/audio";
   const {
     audioPlayer,
     volumeSlider,
