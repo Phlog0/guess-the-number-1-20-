@@ -4,6 +4,7 @@ import { initElements } from "./audio-player/init-elements";
 import { initTheme } from "./theme/init-theme";
 import { toggleTheme } from "./toggle-theme";
 
+console.log(import.meta.env.VITE_TEST);
 document.addEventListener("DOMContentLoaded", function () {
   const { copyMailBtn, toast, changeThemeButton, userInput, resetButton } =
     initElements();
